@@ -2,57 +2,141 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Paper Airplane Club</title>
+    <title>Paper Airplane Club | Taking Flight</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700&family=Playfair+Display:ital,wght@0,700;1,700&display=swap" rel="stylesheet">
 
     <style>
+        :root {
+            --primary: #1e40af; /* Deep blue */
+            --accent: #38bdf8;  /* Sky blue */
+            --text: #1e293b;
+            --bg-light: #f8fafc;
+            --white: #ffffff;
+        }
+
         body {
             margin: 0;
-            font-family: Georgia, sans-serif;
+            font-family: 'Inter', sans-serif;
+            color: var(--text);
+            line-height: 1.6;
+            background-color: var(--bg-light);
             scroll-behavior: smooth;
         }
 
+        /* --- Header & Hero --- */
         header {
-            background: #000000;
+            background: linear-gradient(135deg, #0f172a 0%, #1e40af 100%);
             color: white;
             text-align: center;
-            padding: 100px 20px;
+            padding: 120px 20px;
+            clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%); /* Angled bottom */
         }
 
         header h1 {
-            font-size: 48px;
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(2.5rem, 8vw, 4rem);
             margin: 0;
+            letter-spacing: -1px;
         }
 
+        header p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            font-weight: 300;
+            margin-top: 10px;
+        }
+
+        /* --- Navigation --- */
         nav {
-            background: #142f6b;
-            padding: 15px;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 15px 0;
             text-align: center;
             position: sticky;
             top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 15px rgba(0,0,0,0.05);
         }
 
         nav a {
-            color: white;
+            color: var(--text);
             text-decoration: none;
-            margin: 0 15px;
-            font-weight: bold;
+            margin: 0 20px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: color 0.3s;
         }
 
+        nav a:hover {
+            color: var(--primary);
+        }
+
+        /* --- Sections --- */
         section {
-            padding: 80px 20px;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 100px 20px;
             text-align: center;
         }
 
-        #about { background: #f4f4f4; }
-        #events { background: #e2e8f0; }
-        #contact { background: #cbd5e1; }
+        h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            position: relative;
+            display: inline-block;
+        }
 
+        h2::after {
+            content: '';
+            display: block;
+            width: 50px;
+            height: 3px;
+            background: var(--accent);
+            margin: 10px auto 0;
+        }
+
+        /* --- Cards --- */
+        .card {
+            background: var(--white);
+            padding: 40px;
+            border-radius: 16px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            transition: transform 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+        }
+
+        .status-badge {
+            display: inline-block;
+            background: #fee2e2;
+            color: #ef4444;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: bold;
+            margin-top: 15px;
+        }
+
+        /* --- Footer --- */
         footer {
-            background: #0a1f44;
-            color: white;
+            background: #0f172a;
+            color: #94a3b8;
             text-align: center;
-            padding: 20px;
+            padding: 40px 20px;
+            margin-top: 50px;
+        }
+
+        footer strong { color: white; }
+
+        @media (max-width: 600px) {
+            header { padding: 80px 20px; }
+            nav a { margin: 0 10px; font-size: 0.8rem; }
         }
     </style>
 </head>
@@ -61,7 +145,7 @@
 
 <header>
     <h1>Paper Airplane Club</h1>
-    <p>This is the offical club website</p>
+    <p>Engineering simplicity, one fold at a time.</p>
 </header>
 
 <nav>
@@ -71,22 +155,30 @@
 </nav>
 
 <section id="about">
-    <h2>About Us</h2>
-    <p>We are a club based off of creating simple paper airplanes, founded in the year 2026</p>
+    <div class="card">
+        <h2>About Us</h2>
+        <p>Founded in 2026, we are a community of enthusiasts dedicated to the art and science of paper aviation. From basic darts to advanced gliders, we explore the limits of aerodynamics with nothing but a sheet of paper.</p>
+    </div>
 </section>
 
 <section id="events">
-    <h2>Events</h2>
-    <p>Current events: None</p>
+    <div class="card">
+        <h2>Upcoming Events</h2>
+        <p>Our flight deck is currently clear. Check back soon for workshops and competitions!</p>
+        <span class="status-badge">No Active Events</span>
+    </div>
 </section>
 
 <section id="contact">
-    <h2>Contact</h2>
-    <p>If you have any questions Please contact: aranjay nandan venkateswaran</p>
+    <div class="card">
+        <h2>Get in Touch</h2>
+        <p>Have questions about folding techniques or membership? Reach out to our founder:</p>
+        <p><strong>Aranjay Nandan Venkateswaran</strong></p>
+    </div>
 </section>
 
 <footer>
-    <p>© 2026 paper airplane club all rights reserved</p>
+    <p>&copy; 2026 <strong>Paper Airplane Club</strong>. All rights reserved.</p>
 </footer>
 
 </body>
